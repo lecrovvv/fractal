@@ -1,0 +1,187 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement
+Rule 2     program -> program statement
+Rule 3     statement -> PRINTLN STRING
+Rule 4     statement -> SIZE INTEGER INTEGER
+Rule 5     statement -> CREATE
+Rule 6     statement -> LABEL STRING
+Rule 7     statement -> TITLE STRING
+
+Terminals, with rules where they appear
+
+CREATE               : 5
+INTEGER              : 4 4
+LABEL                : 6
+PRINTLN              : 3
+SIZE                 : 4
+STRING               : 3 6 7
+TITLE                : 7
+error                : 
+
+Nonterminals, with rules where they appear
+
+program              : 2 0
+statement            : 1 2
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement
+    (2) program -> . program statement
+    (3) statement -> . PRINTLN STRING
+    (4) statement -> . SIZE INTEGER INTEGER
+    (5) statement -> . CREATE
+    (6) statement -> . LABEL STRING
+    (7) statement -> . TITLE STRING
+
+    PRINTLN         shift and go to state 3
+    SIZE            shift and go to state 4
+    CREATE          shift and go to state 5
+    LABEL           shift and go to state 6
+    TITLE           shift and go to state 7
+
+    program                        shift and go to state 1
+    statement                      shift and go to state 2
+
+state 1
+
+    (0) S' -> program .
+    (2) program -> program . statement
+    (3) statement -> . PRINTLN STRING
+    (4) statement -> . SIZE INTEGER INTEGER
+    (5) statement -> . CREATE
+    (6) statement -> . LABEL STRING
+    (7) statement -> . TITLE STRING
+
+    PRINTLN         shift and go to state 3
+    SIZE            shift and go to state 4
+    CREATE          shift and go to state 5
+    LABEL           shift and go to state 6
+    TITLE           shift and go to state 7
+
+    statement                      shift and go to state 8
+
+state 2
+
+    (1) program -> statement .
+
+    PRINTLN         reduce using rule 1 (program -> statement .)
+    SIZE            reduce using rule 1 (program -> statement .)
+    CREATE          reduce using rule 1 (program -> statement .)
+    LABEL           reduce using rule 1 (program -> statement .)
+    TITLE           reduce using rule 1 (program -> statement .)
+    $end            reduce using rule 1 (program -> statement .)
+
+
+state 3
+
+    (3) statement -> PRINTLN . STRING
+
+    STRING          shift and go to state 9
+
+
+state 4
+
+    (4) statement -> SIZE . INTEGER INTEGER
+
+    INTEGER         shift and go to state 10
+
+
+state 5
+
+    (5) statement -> CREATE .
+
+    PRINTLN         reduce using rule 5 (statement -> CREATE .)
+    SIZE            reduce using rule 5 (statement -> CREATE .)
+    CREATE          reduce using rule 5 (statement -> CREATE .)
+    LABEL           reduce using rule 5 (statement -> CREATE .)
+    TITLE           reduce using rule 5 (statement -> CREATE .)
+    $end            reduce using rule 5 (statement -> CREATE .)
+
+
+state 6
+
+    (6) statement -> LABEL . STRING
+
+    STRING          shift and go to state 11
+
+
+state 7
+
+    (7) statement -> TITLE . STRING
+
+    STRING          shift and go to state 12
+
+
+state 8
+
+    (2) program -> program statement .
+
+    PRINTLN         reduce using rule 2 (program -> program statement .)
+    SIZE            reduce using rule 2 (program -> program statement .)
+    CREATE          reduce using rule 2 (program -> program statement .)
+    LABEL           reduce using rule 2 (program -> program statement .)
+    TITLE           reduce using rule 2 (program -> program statement .)
+    $end            reduce using rule 2 (program -> program statement .)
+
+
+state 9
+
+    (3) statement -> PRINTLN STRING .
+
+    PRINTLN         reduce using rule 3 (statement -> PRINTLN STRING .)
+    SIZE            reduce using rule 3 (statement -> PRINTLN STRING .)
+    CREATE          reduce using rule 3 (statement -> PRINTLN STRING .)
+    LABEL           reduce using rule 3 (statement -> PRINTLN STRING .)
+    TITLE           reduce using rule 3 (statement -> PRINTLN STRING .)
+    $end            reduce using rule 3 (statement -> PRINTLN STRING .)
+
+
+state 10
+
+    (4) statement -> SIZE INTEGER . INTEGER
+
+    INTEGER         shift and go to state 13
+
+
+state 11
+
+    (6) statement -> LABEL STRING .
+
+    PRINTLN         reduce using rule 6 (statement -> LABEL STRING .)
+    SIZE            reduce using rule 6 (statement -> LABEL STRING .)
+    CREATE          reduce using rule 6 (statement -> LABEL STRING .)
+    LABEL           reduce using rule 6 (statement -> LABEL STRING .)
+    TITLE           reduce using rule 6 (statement -> LABEL STRING .)
+    $end            reduce using rule 6 (statement -> LABEL STRING .)
+
+
+state 12
+
+    (7) statement -> TITLE STRING .
+
+    PRINTLN         reduce using rule 7 (statement -> TITLE STRING .)
+    SIZE            reduce using rule 7 (statement -> TITLE STRING .)
+    CREATE          reduce using rule 7 (statement -> TITLE STRING .)
+    LABEL           reduce using rule 7 (statement -> TITLE STRING .)
+    TITLE           reduce using rule 7 (statement -> TITLE STRING .)
+    $end            reduce using rule 7 (statement -> TITLE STRING .)
+
+
+state 13
+
+    (4) statement -> SIZE INTEGER INTEGER .
+
+    PRINTLN         reduce using rule 4 (statement -> SIZE INTEGER INTEGER .)
+    SIZE            reduce using rule 4 (statement -> SIZE INTEGER INTEGER .)
+    CREATE          reduce using rule 4 (statement -> SIZE INTEGER INTEGER .)
+    LABEL           reduce using rule 4 (statement -> SIZE INTEGER INTEGER .)
+    TITLE           reduce using rule 4 (statement -> SIZE INTEGER INTEGER .)
+    $end            reduce using rule 4 (statement -> SIZE INTEGER INTEGER .)
+

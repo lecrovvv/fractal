@@ -1,0 +1,8 @@
+title "Test"
+
+label "test" 20 40
+pushbutton "test" 20 80
+checkbox "test" 20 120
+inputfield 20 140
+
+show
